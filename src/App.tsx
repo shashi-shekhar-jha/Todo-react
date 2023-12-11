@@ -3,9 +3,11 @@ import './App.css';
 import Todo from './components/models/Todo';
 import NewTodo from './components/NewTodo';
 import { useState } from 'react';
+import { useLocalStorage } from './components/useLocalStorage';
 
 function App() {
-  const [todos,setTodos] = useState<Todo[]>([]);
+   const [todos, setTodos] = useLocalStorage<Todo[]>("Todos",[]);
+
 
   const addToTodoHandler = (todoText:string)=>{
     const newTodo = new Todo(todoText);
